@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Brain Booster Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Brain Booster Academy</h1>
+      
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+      
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      
+
+  <section class="page-section">
+    <h2>Contact Us</h2>
+
+    <form class="contact-form" id="contactForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required>
+      
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" required>
+       
+        <label for="message">Message:</label>
+        <textarea id="message" rows="5" required></textarea>
+      
+        <button type="submit">Send Message</button>
+      </form>
+      
+      <p id="status-msg"></p>
+      
+  </section>
+  
+  
+  
+  
+
+  <footer class="laadli-footer">
+    <p>🌸 May the grace of <strong>Radha Rani & Shri Krishna</strong> guide every student on the path of true knowledge.</p>
+    <p>© 2025 Brain Booster Academy | Powered by Blessings, Bhakti & Books 📚</p>
+  </footer>
+ <!-- EmailJS SDK via official non-module version -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  // Initialize EmailJS
+  (function(){
+    emailjs.init("hFyBCFpwpGrwE_NDg"); // ✅ Your Public Key
+  })();
+
+  // Form submission handler
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const templateParams = {
+      from_name: document.getElementById("name").value,
+      from_email: document.getElementById("email").value,
+      
+      message: document.getElementById("message").value,
+    };
+
+    emailjs.send("service_sxg76af", "template_rydh9tv", templateParams)
+      .then(function(response) {
+        document.getElementById("status-msg").textContent = "✅ Message sent successfully!";
+      }, function(error) {
+        document.getElementById("status-msg").textContent = "❌ Failed to send message. Try again.";
+        console.error("EmailJS Error:", error);
+      });
+
+    document.getElementById("contactForm").reset();
+  });
+</script>
+
+</body>
+</html>

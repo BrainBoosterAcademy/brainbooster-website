@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes - Brain Booster Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Brain Booster Academy</h1>
+      
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+      
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      
+
+  <section class="page-section">
+    <section class="page-section">
+        <h2>Download Notes</h2>
+      
+        <!-- FILTER BUTTONS -->
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="jee">JEE</button>
+          <button class="filter-btn" data-filter="class10">Class 10</button>
+          <button class="filter-btn" data-filter="class12">Class 12</button>
+        </div>
+      
+        <!-- NOTES CARDS -->
+        <div class="notes-container">
+          <div class="note-card" data-category="class10">
+            <h3>Class 10 Science Notes</h3>
+            <a href="notes/class10_science.pdf" download>Download PDF</a>
+          </div>
+      
+          <div class="note-card" data-category="class12">
+            <h3>Class 12 Physics Notes</h3>
+            <a href="notes/class12_physics.pdf" download>Download PDF</a>
+          </div>
+      
+          <div class="note-card" data-category="jee">
+            <h3>JEE Chemistry Notes</h3>
+            <a href="notes/jee_chemistry.pdf" download>Download PDF</a>
+          </div>
+      
+          <div class="note-card" data-category="jee">
+            <h3>JEE Physics Formula Sheet</h3>
+            <a href="notes/jee_physics_formulas.pdf" download>Download PDF</a>
+          </div>
+      
+          <div class="note-card" data-category="class12">
+            <h3>Class 12 Chemistry Notes</h3>
+            <a href="notes/class12_chemistry.pdf" download>Download PDF</a>
+          </div>
+        </div>
+      </section>
+      
+  </section>
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const noteCards = document.querySelectorAll(".note-card");
+  
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelector(".filter-btn.active").classList.remove("active");
+        btn.classList.add("active");
+        const filter = btn.getAttribute("data-filter");
+  
+        noteCards.forEach(card => {
+          const category = card.getAttribute("data-category");
+          if (filter === "all" || category === filter) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+  
+  <footer class="laadli-footer">
+    <p>🌸 May the grace of <strong>Radha Rani & Shri Krishna</strong> guide every student on the path of true knowledge.</p>
+    <p>© 2025 Brain Booster Academy | Powered by Blessings, Bhakti & Books 📚</p>
+  </footer>
+
+</body>
+</html>

@@ -12,18 +12,22 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-          
+      <nav class="navbar">
+        <h1>Brain Booster Academy</h1>
       
-          <div class="logo">Brain Booster Academy</div>
-          <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Notes</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+      
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      
         <section class="courses">
           <h2>Courses We Offer</h2>
           <div class="course-container">
@@ -111,6 +115,11 @@
   
     </form>
   </section>
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
   
   <footer class="laadli-footer">
     <p>🌸 May the grace of <strong>Radha Rani & Shri Krishna</strong> guide every student on the path of true knowledge.</p>
