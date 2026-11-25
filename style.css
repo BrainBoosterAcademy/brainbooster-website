@@ -52,6 +52,24 @@ a {
   text-decoration: none;
 }
 
+.note-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+.note-card a:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgb(0 0 0 / 20%);
+}
+
 .nav-links li a {
   position: relative;
   color: white;
@@ -209,24 +227,6 @@ a {
   margin-bottom: 10px;
   font-size: 22px;
   color: #222;
-}
-
-.note-card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-
-button:hover,
-.note-card a:hover {
-  background: #0056b3;
-  transform: scale(1.05);
-  box-shadow: 0 5px 12px rgb(0 0 0 / 20%);
 }
 
 .filter-buttons {
