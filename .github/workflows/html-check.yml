@@ -1,26 +1,26 @@
-
 name: HTML Validation
 
 on:
   push:
-    branches:
-      - main
-
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   validate-html:
-    name: Validate HTML Files
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
-      - name: Validate HTML
-        uses: Cyb3r-Jak3/html5validator-action@v8.0.0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          root: .
-          css: false
+          node-version: "20"
+
+      - name: Install HTMLHint
+        run: npm install htmlhint --no-save
+
+      - name: Validate HTML files
+        run: npx htmlhint "**/*.html"
