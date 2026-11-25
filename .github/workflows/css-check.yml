@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
@@ -23,12 +24,15 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install Stylelint
-        run: npm install --global stylelint stylelint-config-standard
+      - name: Initialize temporary Stylelint project
+        run: npm init -y
+
+      - name: Install Stylelint dependencies
+        run: npm install --save-dev stylelint stylelint-config-standard
 
       - name: Create Stylelint configuration
         run: |
           echo '{"extends":["stylelint-config-standard"]}' > .stylelintrc.json
 
       - name: Validate CSS
-        run: stylelint "**/*.css" --ignore-pattern "**/node_modules/**"
+        run: npx stylelint "**/*.css" --ignore-pattern "**/node_modules/**" --ignore-pattern "**/.git/**"
